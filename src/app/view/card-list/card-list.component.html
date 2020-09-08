@@ -5,7 +5,7 @@
   <hr>
 
   <div class="two-c-grid">
-    <div>
+    <div class="card-grid">
       <h1 cdkDragHandle>To do</h1>
       <hr>
       <div cdkDropList
@@ -13,8 +13,9 @@
            id="todo_id"
            [cdkDropListData]="pendingCards"
            [cdkDropListConnectedTo]="[doneList]"
-           class="card-container" (cdkDropListDropped)="onDrop($event)">
-        <div cdkDrag [cdkDragData]="pending" *ngFor="let pending of pendingCards | cardFilter: filteredValue" class="card"
+           class="card-grid-container" (cdkDropListDropped)="onDrop($event)">
+        <div cdkDrag [cdkDragData]="pending" *ngFor="let pending of pendingCards | cardFilter: filteredValue"
+             class="card"
              [ngClass]="{ 'pending' : pending.status === cardStatus.PENDING, 'rejected' : pending.status === cardStatus.REJECTED }">
           <h2>{{ pending.patient_name }}</h2>
           <p>{{ pending.status }}</p>
@@ -22,7 +23,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="card-grid">
       <h1>Done</h1>
       <hr>
       <div cdkDropList
@@ -30,8 +31,9 @@
            id="done_id"
            [cdkDropListData]="rejectedCards"
            [cdkDropListConnectedTo]="[todoList]"
-           class="card-container" (cdkDropListDropped)="onDrop($event)">
-        <div cdkDrag [cdkDragData]="rejected" *ngFor="let rejected of rejectedCards | cardFilter: filteredValue" class="card"
+           class="card-grid-container" (cdkDropListDropped)="onDrop($event)">
+        <div cdkDrag [cdkDragData]="rejected" *ngFor="let rejected of rejectedCards | cardFilter: filteredValue"
+             class="card"
              [ngClass]="{ 'done' : rejected.status === cardStatus.DONE}">
           <h2>{{ rejected.patient_name }}</h2>
           <p>{{ rejected.status }}</p>
@@ -39,5 +41,4 @@
       </div>
     </div>
   </div>
-
 </div>
