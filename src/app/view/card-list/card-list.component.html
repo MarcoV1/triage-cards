@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="justify-content-end">
+    <input class="custom-input" [(ngModel)]="filteredValue" placeholder="Filter by name/arrythmias">
+  </div>
+  <hr>
+
+  <div class="two-c-grid">
+    <div>
+      <h1 cdkDragHandle>To do</h1>
+      <hr>
+      <div cdkDropList
+           #todoList="cdkDropList"
+           id="todo_id"
+           [cdkDropListData]="pendingCards"
+           [cdkDropListConnectedTo]="[doneList]"
+           class="card-container" (cdkDropListDropped)="onDrop($event)">
+        <div cdkDrag [cdkDragData]="pending" *ngFor="let pending of pendingCards | cardFilter: filteredValue" class="card"
+             [ngClass]="{ 'pending' : pending.status === cardStatus.PENDING, 'rejected' : pending.status === cardStatus.REJECTED }">
+          <h2>{{ pending.patient_name }}</h2>
+          <p>{{ pending.status }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h1>Done</h1>
+      <hr>
+      <div cdkDropList
+           #doneList="cdkDropList"
+           id="done_id"
+           [cdkDropListData]="rejectedCards"
+           [cdkDropListConnectedTo]="[todoList]"
+           class="card-container" (cdkDropListDropped)="onDrop($event)">
+        <div cdkDrag [cdkDragData]="rejected" *ngFor="let rejected of rejectedCards | cardFilter: filteredValue" class="card"
+             [ngClass]="{ 'done' : rejected.status === cardStatus.DONE}">
+          <h2>{{ rejected.patient_name }}</h2>
+          <p>{{ rejected.status }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

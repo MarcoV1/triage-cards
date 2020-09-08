@@ -1,0 +1,49 @@
+@import "~src/assets/variables";
+@import "~src/assets/palette";
+@import "~src/assets/mixins";
+
+body {
+  background: linear-gradient(155.87deg, rgba(228, 239, 255, 0.3) 10%, rgba(243, 231, 233, 0.3) 90%);
+  color: $dark;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: $line-height-base;
+  font-size: $font-size-base;
+  margin: 3rem 5rem 3rem 5rem;
+}
+
+h1,
+h3,
+h4,
+h5 {
+  line-height: $headings-line-height-base;
+}
+
+h1 {
+  font-size: x-large;
+  font-weight: $font-weight-bold;
+  margin-bottom: 1.4rem;
+}
+
+h2 {
+  font-size: large;
+  font-weight: $font-weight-bold;
+  transition: 0.1s ease-out;
+  line-height: 1.7;
+}
+
+hr {
+ // border: 0;
+ // border-top: 2px solid $primary_color;
+}
+
+p {
+  font-family: 'Lora', serif;
+  line-height: 1.4;
+  font-size: small;
+  margin: 0 0 6px 0;
+  font-style: italic;
+  color: #fff;
+}

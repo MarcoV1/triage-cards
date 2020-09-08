@@ -1,0 +1,23 @@
+@import "mixins";
+
+.two-c-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @include mq('tablet', min) {
+    grid-template-columns: minmax(auto, 48%) minmax(auto, 48%);
+    padding: 1rem 4rem 1rem 4rem;
+//    grid-template-columns: 1fr 1fr;
+  }
+
+
+  grid-column-gap: 8rem;
+  grid-row-gap: 3rem;
+
+}
+
+
+.justify-content-end {
+  display: flex;
+  justify-content: flex-end;
+}
