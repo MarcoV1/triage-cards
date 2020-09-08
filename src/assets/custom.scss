@@ -3,7 +3,7 @@
 @import "~src/assets/mixins";
 
 body {
-  background: linear-gradient(155.87deg, rgba(228, 239, 255, 0.3) 10%, rgba(243, 231, 233, 0.3) 90%);
+  background: $background;
   color: $dark;
   font-family: 'Poppins', sans-serif;
   font-style: normal;
@@ -11,20 +11,22 @@ body {
   letter-spacing: -0.005em;
   line-height: $line-height-base;
   font-size: $font-size-base;
-  margin: 3rem 5rem 3rem 5rem;
-}
+  margin: 1rem;
 
-h1,
-h3,
-h4,
-h5 {
-  line-height: $headings-line-height-base;
+  @include mq('tablet', min) {
+    margin: 2rem;
+  }
+
+  @include mq('tablet-wide', min) {
+    margin: 3rem 5rem 3rem 5rem;
+  }
 }
 
 h1 {
   font-size: x-large;
   font-weight: $font-weight-bold;
   margin-bottom: 1.4rem;
+  line-height: $headings-line-height-base;
 }
 
 h2 {
@@ -32,11 +34,6 @@ h2 {
   font-weight: $font-weight-bold;
   transition: 0.1s ease-out;
   line-height: 1.7;
-}
-
-hr {
- // border: 0;
- // border-top: 2px solid $primary_color;
 }
 
 p {
